@@ -3,5 +3,5 @@
 IMPORTANT: ensure to setup a JDK 9 with maven.
 
 1. `mvn install` shade folder
-2. `mvn compile` consumer module and run `Consumer` main (this will fail since shade plugin removed module-info.java)
+2. `mvn compile` consumer module and run `Consumer` main (check module-info of this module)
 
