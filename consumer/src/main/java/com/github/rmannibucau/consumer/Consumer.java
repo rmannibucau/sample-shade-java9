@@ -1,10 +1,14 @@
 package com.github.rmannibucau.consumer;
 
 import com.github.rmannibucau.asm6.ClassVisitor;
+import com.github.rmannibucau.asm6.util.SomeSpi;
 import com.github.rmannibucau.asm6.util.Visit;
+
+import java.util.ServiceLoader;
 
 public class Consumer {
     public static void main(String[] args) {
+        System.out.println(ServiceLoader.load(SomeSpi.class).iterator().next()); // must not fail
         Visit.visit(Thread.currentThread().getContextClassLoader()
                         .getResourceAsStream(Consumer.class.getName().replace('.', '/') + ".class"),
                 new ClassVisitor() {
